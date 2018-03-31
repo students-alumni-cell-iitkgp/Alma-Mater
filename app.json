@@ -1,0 +1,19 @@
+{
+  "expo": {
+    "sdkVersion": "26.0.0",
+    "name": "Alma-Mater",
+    "slug": "Alma-Mater",
+    "icon": "./src/img/ic_launcher.png",
+    "androidStatusBarColor": "#334393",
+    "androidStatusBar": {
+      "barStyle": "light-content",
+      "backgroundColor": "#334393"
+    },
+    "ios": {
+      "bundleIdentifier": "com.yugam.almamater"
+    },
+    "android": {
+      "package": "com.yugam.almamater"
+    }
+  }
+}
