@@ -7,10 +7,17 @@ import {
     Header,
     Left,
     Icon,
-    Text
+    Text,
+    Card,
+    CardItem,
+    Right
 } from "native-base";
 import Expo from 'expo';
-
+import * as firebase from "firebase";
+function makeList(ref,data) {
+    ref.push(data);
+    console.log("pushed token")
+}
 async function getToken() {
     // Remote notifications do not work in simulators, only on device
     if (!Expo.Constants.isDevice) {
@@ -25,6 +32,9 @@ async function getToken() {
     let value = await Expo.Notifications.getExpoPushTokenAsync();
     console.log('Our token', value);
     /// Send this to a server
+
+    let testRef = firebase.database().ref('token/');
+    makeList(testRef,value);
 }
 
 export default class Notify extends React.Component {
@@ -56,9 +66,76 @@ export default class Notify extends React.Component {
                             <Icon style={{color:"#afbfe1"}} name="menu" />
                         </Button>
                     </Left><Body/>
+                    <Right>
+                        <Button
+                            transparent
+                            onPress={() => this.props.navigation.navigate("Home")}
+                        >
+                            <Icon style={{color:"#afbfe1"}} name="paper-plane" />
+                        </Button>
+                    </Right>
                 </Header>
                 <Content padder style={{color:"#afbfe1"}}>
-                    <Text> token is in console</Text>
+                    <Card style={{flex: 0}}>
+                        <CardItem style={{backgroundColor:"#e8edf6"}}>
+                            <Left>
+                                <Body>
+                                <Text>Musical Night Starts in 15 min</Text>
+                                <Text note>April 15, 2016 6:45PM</Text>
+                                </Body>
+                            </Left>
+                        </CardItem>
+                    </Card>
+                    <Card style={{flex: 0}}>
+                        <CardItem style={{backgroundColor:"#e8edf6"}}>
+                            <Left>
+                                <Body>
+                                <Text>Musical Night Starts in 15 min</Text>
+                                <Text note>April 15, 2016 6:45PM</Text>
+                                </Body>
+                            </Left>
+                        </CardItem>
+                    </Card>
+                    <Card style={{flex: 0}}>
+                        <CardItem style={{backgroundColor:"#e8edf6"}}>
+                            <Left>
+                                <Body>
+                                <Text>Musical Night Starts in 15 min</Text>
+                                <Text note>April 15, 2016 6:45PM</Text>
+                                </Body>
+                            </Left>
+                        </CardItem>
+                    </Card>
+                    <Card style={{flex: 0}}>
+                        <CardItem style={{backgroundColor:"#e8edf6"}}>
+                            <Left>
+                                <Body>
+                                <Text>Musical Night Starts in 15 min</Text>
+                                <Text note>April 15, 2016 6:45PM</Text>
+                                </Body>
+                            </Left>
+                        </CardItem>
+                    </Card>
+                    <Card style={{flex: 0}}>
+                        <CardItem style={{backgroundColor:"#e8edf6"}}>
+                            <Left>
+                                <Body>
+                                <Text>Musical Night Starts in 15 min</Text>
+                                <Text note>April 15, 2016 6:45PM</Text>
+                                </Body>
+                            </Left>
+                        </CardItem>
+                    </Card>
+                    <Card style={{flex: 0}}>
+                        <CardItem style={{backgroundColor:"#e8edf6"}}>
+                            <Left>
+                                <Body>
+                                <Text>Musical Night Starts in 15 min</Text>
+                                <Text note>April 15, 2016 6:45PM</Text>
+                                </Body>
+                            </Left>
+                        </CardItem>
+                    </Card>
                 </Content>
             </Container>
         );

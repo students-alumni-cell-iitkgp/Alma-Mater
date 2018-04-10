@@ -13,7 +13,12 @@
       "bundleIdentifier": "com.yugam.almamater"
     },
     "android": {
-      "package": "com.yugam.almamater"
-    }
+      "package": "com.yugam.almamater",
+    "config": {
+      "googleMaps": {
+        "apiKey": "AIzaSyA28YJVKesO6AOHVeRwTqD1rTAxO9V2TNw"
+	            }
+	      }
+            }
   }
 }

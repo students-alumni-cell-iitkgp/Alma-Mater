@@ -1,39 +1,46 @@
 import React, { Component } from "react";
-import { Content, Text } from "native-base";
 import * as firebase from "firebase";
-import {
-    Image, View
-} from 'react-native';
-export default class TabOne extends Component {
-    render() {
-        return (
-            <View >
-                {this._maybeRenderImage()}
-            </View>
+import { View} from 'react-native';
+import Image from 'react-native-image-progress';
+import ProgressBar from 'react-native-progress/Bar';
+import Lightbox from 'react-native-lightbox';
 
-        );
+export default class TabOne extends Component {
+    constructor(){
+        super();
+        this.state = {
+            imageList: [],
+        }
+    }
+    componentDidMount(){
+        let starCountRef = firebase.database().ref('images/');
+        let images = this.state.imageList;
+        starCountRef.on('child_added', (snapshot) => {
+            let postElement = snapshot.val();
+            images.push(postElement.image);
+            this.setState({
+                imageList: images
+            })
+        });
     }
 
-
-    _maybeRenderImage = () => {
-        let imageurl="";
-        let starCountRef = firebase.database().ref('images/');
-        starCountRef.on('child_added', function (snapshot) {
-            let postElement = snapshot.val();
-            console.log('retrieved');
-            console.log(postElement.image);
-            imageurl = postElement.image;
-        });
-        console.log("hello")
-        console.log(imageurl);
-        if (!imageurl) {
-            return;
-        }
-
+    render() {
         return (
-                <View>
-                    <Image source={{ uri: imageurl }} style={{ width: "100%", height: 250 }} />
-                </View>
+            <View style={{marginBottom:40}}>
+                {
+                    this.state.imageList.map( (url,index) => {
+                        return (
+                            <Lightbox>
+                            <Image
+                                key={'images'+index}
+                                source={{ uri: url }}
+                                indicator={ProgressBar}
+                                style={{ width: "100%", height: 200,margin:5,marginLeft:0 }} />
+                            </Lightbox>
+                        )
+                    })
+                }
+            </View>
         );
     }
 }

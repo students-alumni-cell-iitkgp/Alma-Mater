@@ -13,7 +13,7 @@ import {
     Header,
     Left,
     Icon,
-    Text,Footer, FooterTab,
+    Text,Footer, FooterTab,Right
 } from "native-base";
 import { ImagePicker } from 'expo';
 import uuid from 'uuid';
@@ -78,10 +78,18 @@ export default class App extends React.Component {
                         <Icon style={{color:"#afbfe1"}} name="menu" />
                     </Button>
                 </Left><Body/>
+
+                <Right>
+                    <Button
+                        transparent
+                        onPress={() => this.props.navigation.navigate("Home")}
+                    >
+                        <Icon style={{color:"#afbfe1"}} name="paper-plane" />
+                    </Button>
+                </Right>
             </Header>
             <Content padder style={{backgroundColor:"#afbfe1"}}>
                 <TabOne/>
-                {this._maybeRenderImage()}
                 {this._maybeRenderUploadingOverlay()}
             </Content>
             <Footer>
@@ -129,26 +137,6 @@ export default class App extends React.Component {
     }
   };
 
-  _maybeRenderImage = () => {
-    let { image } = this.state;
-    if (!image) {
-      return;
-    }
-
-
-    return (
-        <Container>
-            <Content>
-                <Grid>
-                    <Row>
-                        <Image source={{ uri: image }} style={{ height:200,width:"100%",marginTop:20}}/>
-                    </Row>
-                </Grid>
-            </Content>
-
-        </Container>
-    );
-  };
 
   _takePhoto = async () => {
     let pickerResult = await ImagePicker.launchCameraAsync();

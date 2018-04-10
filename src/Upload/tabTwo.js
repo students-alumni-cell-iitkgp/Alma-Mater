@@ -8,14 +8,6 @@ export default class TabTwo extends Component {
           <Card style={{ flex: 0 }}>
               <CardItem>
                   <Body>
-                  <Image
-                      source={require('../img/azad.jpg')}
-                      style={{
-                          height: 270,
-                          width:'100%',
-                          alignSelf: "stretch",
-                      }}
-                  />
                   </Body>
               </CardItem>
               <CardItem>

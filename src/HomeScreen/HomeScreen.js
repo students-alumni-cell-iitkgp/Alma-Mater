@@ -35,35 +35,51 @@ export default class HomeScreen extends React.Component {
                       <Row  size={1}>
                           <Button vertical style={{ backgroundColor: '#283c69',height:"100%",width:"100%",flex:1,
                               justifyContent: 'center',
-                              alignItems: 'center'}} onPress={() =>this.props.navigation.navigate('Events')}>
-                              <Icon name="navigate" />
+                              alignItems: 'center',borderRadius:0}} onPress={() =>this.props.navigation.navigate('Events')}>
+                              <Icon name="baseball" />
                               <Text>Events</Text>
                           </Button>
                       </Row>
                       <Row  size={1}>
                           <Button vertical style={{  backgroundColor: '#1d2c4d',height:"100%",width:"100%",flex:1,
                               justifyContent: 'center',
-                              alignItems: 'center'}}  onPress={() =>this.props.navigation.navigate('Locate a friend')}>
-                              <Icon name="hand" />
-                              <Text>Locate Friend</Text>
-                          </Button>
-                      </Row>
-                  </Col>
-                  <Col style={{width:"50%"}}>
-                      <Row  size={1}>
-                          <Button vertical style={{ backgroundColor: '#1d2c4d',height:"100%",width:"100%",flex:1,
-                              justifyContent: 'center',
-                              alignItems: 'center'}}  onPress={() =>this.props.navigation.navigate('Notifications')}>
-                              <Icon name="alarm" />
-                              <Text>Notifications</Text>
+                              alignItems: 'center',borderRadius:0}}  onPress={() =>this.props.navigation.navigate('Navigate')}>
+                              <Icon name="navigate" />
+                              <Text>Navigate</Text>
                           </Button>
                       </Row>
                       <Row  size={1}>
                           <Button vertical style={{  backgroundColor: '#283c69',height:"100%",width:"100%",flex:1,
                               justifyContent: 'center',
-                              alignItems: 'center'}}  onPress={() =>this.props.navigation.navigate('Upload Picture')}>
+                              alignItems: 'center',borderRadius:0}}  onPress={() =>this.props.navigation.navigate('Newsfeed')}>
+                              <Icon name="paper" />
+                              <Text>Newsfeed</Text>
+                          </Button>
+                      </Row>
+                  </Col>
+                  <Col style={{width:"50%"}}>
+                      <Row  size={1}>
+                          <Button vertical style={{  backgroundColor: '#1d2c4d',height:"100%",width:"100%",flex:1,
+                              justifyContent: 'center',
+                              alignItems: 'center',borderRadius:0}}  onPress={() =>this.props.navigation.navigate('Gallery')}>
                               <Icon name="images" />
-                              <Text>Gallary</Text>
+                              <Text>Gallery</Text>
+                          </Button>
+                      </Row>
+                      <Row  size={1}>
+                          <Button vertical style={{  backgroundColor: '#283c69',height:"100%",width:"100%",flex:1,
+                              justifyContent: 'center',
+                              alignItems: 'center',borderRadius:0}}  onPress={() =>this.props.navigation.navigate('Locate a friend')}>
+                              <Icon name="hand" />
+                              <Text>Locate Friend</Text>
+                          </Button>
+                      </Row>
+                      <Row  size={1}>
+                          <Button vertical style={{ backgroundColor: '#1d2c4d',height:"100%",width:"100%",flex:1,
+                              justifyContent: 'center',
+                              alignItems: 'center',borderRadius:0}}  onPress={() =>this.props.navigation.navigate('Notifications')}>
+                              <Icon name="alarm" />
+                              <Text>Notifications</Text>
                           </Button>
                       </Row>
                   </Col>

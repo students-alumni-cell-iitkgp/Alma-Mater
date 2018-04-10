@@ -8,15 +8,16 @@ import {
     Header,
     Left,
     Icon,
-    Text
+    Text,
+    Right
 } from "native-base";
 export default class App extends Component {
     state = {
         mapRegion: {
             latitude: 22.314984,
             longitude:  87.31041,
-            latitudeDelta: 0.01184195044303443,
-            longitudeDelta: 0.012542817690068 },
+            latitudeDelta: 0.00004195044303443,
+            longitudeDelta: 0.000542817690068 },
         locationResult: null,
         location: {coords: { latitude: 22.314984, longitude: 87.31041}},
     };
@@ -24,10 +25,6 @@ export default class App extends Component {
     componentDidMount() {
         this._getLocationAsync();
     }
-
-    _handleMapRegionChange = mapRegion => {
-        this.setState({ mapRegion });
-    };
 
     _getLocationAsync = async () => {
         let { status } = await Permissions.askAsync(Permissions.LOCATION);
@@ -56,13 +53,22 @@ export default class App extends Component {
                             <Icon style={{color:"#afbfe1"}} name="menu" />
                         </Button>
                     </Left><Body/>
+
+                    <Right>
+                        <Button
+                            transparent
+                            onPress={() => this.props.navigation.navigate("Home")}
+                        >
+                            <Icon style={{color:"#afbfe1"}} name="paper-plane" />
+                        </Button>
+                    </Right>
                 </Header>
                 <Content>
 
                     <MapView
                         style={{ alignSelf: 'stretch', height: 200 }}
                         region={{ latitude: this.state.location.coords.latitude, longitude: this.state.location.coords.longitude, latitudeDelta: 0.0922, longitudeDelta: 0.0421 }}
-                        onRegionChange={this._handleMapRegionChange}
+
                     >
                         <MapView.Marker
                             coordinate={this.state.location.coords}

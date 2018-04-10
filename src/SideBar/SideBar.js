@@ -9,7 +9,36 @@ import {
   Content,
   Icon
 } from "native-base";
-const routes = ["Home","Events", "Locate a friend","Notifications" ,"Upload Picture"];
+const routes = [
+    {
+        title:"Home",
+        icon:"grid"
+    },
+    {
+        title:"Events",
+        icon:"baseball"
+    },
+    {
+        title:"Navigate",
+        icon:"navigate"
+    },
+    {
+        title:"Gallery",
+        icon:"images"
+    },
+    {
+        title:"Newsfeed",
+        icon:"paper"
+    },
+    {
+        title:"Locate a friend",
+        icon:"hand"
+    },
+    {
+        title:"Notifications",
+        icon:"alarm"
+    }
+];
 export default class SideBar extends React.Component {
   render() {
     return (
@@ -33,9 +62,10 @@ export default class SideBar extends React.Component {
               return (
                 <ListItem style={{borderBottomColor:"#afbfe1"}}
                   button
-                  onPress={() => this.props.navigation.navigate(data)}
+                  onPress={() => this.props.navigation.navigate(data.title)}
                 >
-                  <Text style={{color:"#afbfe1"}}>{data}</Text>
+                    <Icon name={data.icon} style={{color:"#afbfe1",paddingRight:20}}/>
+                  <Text style={{color:"#afbfe1"}}>{data.title}</Text>
                 </ListItem>
               );
             }}
