@@ -5,6 +5,9 @@ This is the cross-platform Android/IOS app created to used during AAM.
 ![screenshot_2018_04_1_mupvf](https://user-images.githubusercontent.com/20748662/38539311-3a9235e0-3cb5-11e8-9048-d9253e9981e9.jpg)
 ![screenshot_2018_04_1_xhocd](https://user-images.githubusercontent.com/20748662/38539312-3ae50928-3cb5-11e8-847a-bde6f1b6e013.jpg)
 
+## Requirements
+* Macbook for building IOS app
+* Build and tested on Android
 
 ## Getting Started
 
@@ -84,7 +87,7 @@ See url/QR code in console and paste it in Emulator/Device
 ## Fearures to Add/Suggestion
 
 * **Login/Authentication** - To use firebase features **important**
-* **User Details** - provide accomodation details and general info here. Also add screen if some alumni require water bottle/blanket/towels etc.
+* **User Details** - provide accomodation details and general info here. Also add form if some alumni require water bottle/blanket/towels etc.
 * **Interface for cab booking** - update sheets of transport portfolio. Maybe needed in future for 1000+ alumni 
 
 ## Authors
